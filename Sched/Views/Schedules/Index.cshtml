@@ -65,12 +65,12 @@
                                 </td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ScheduleId">
                                         More
                                     </button>
 
                                     <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal-@item.ScheduleId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -78,7 +78,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 
-                                                <div class="modal-footer text-center">
+                                                <div class="modal-footer">
                                                     <a class="btn btn-success text-light btn-sm d-none d-sm-inline-block" asp-action="Edit" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-pen "></i> Edit</a> |
                                                     <a class="btn btn-info text-light btn-sm d-none d-sm-inline-block" asp-action="Details" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file "></i> Details</a> |
                                                     <a class="btn btn-danger text-light btn-sm d-none d-sm-inline-block" asp-action="Delete" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file-circle-xmark "></i> Delete</a>
