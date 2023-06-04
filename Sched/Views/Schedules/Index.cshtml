@@ -64,9 +64,29 @@
                                     @Html.DisplayFor(modelItem => item.Timeslot.TimeslotDisplay)
                                 </td>
                                 <td>
-                                    <a class="btn btn-success text-light btn-sm d-none d-sm-inline-block" asp-action="Edit" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-pen "></i> Edit</a> |
-                                    <a class="btn btn-info text-light btn-sm d-none d-sm-inline-block" asp-action="Details" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file "></i> Details</a> |
-                                    <a class="btn btn-danger text-light btn-sm d-none d-sm-inline-block" asp-action="Delete" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file-circle-xmark "></i> Delete</a>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        More
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Choose to...</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                
+                                                <div class="modal-footer text-center">
+                                                    <a class="btn btn-success text-light btn-sm d-none d-sm-inline-block" asp-action="Edit" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-pen "></i> Edit</a> |
+                                                    <a class="btn btn-info text-light btn-sm d-none d-sm-inline-block" asp-action="Details" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file "></i> Details</a> |
+                                                    <a class="btn btn-danger text-light btn-sm d-none d-sm-inline-block" asp-action="Delete" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file-circle-xmark "></i> Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </td>
                             </tr>
                         }
