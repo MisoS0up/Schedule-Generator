@@ -1,4 +1,3 @@
-README
 
 # Schedule-Generator
 
