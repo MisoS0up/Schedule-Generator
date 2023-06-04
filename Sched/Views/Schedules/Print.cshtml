@@ -1,0 +1,98 @@
+﻿
+@model IEnumerable<IGrouping<string, Sched.Models.Domain.Schedule>>
+
+
+@*This Code Prints the Grouped Data gathered from the Schedule.*@
+@{
+    string GetScheduleForDay(IEnumerable<Sched.Models.Domain.Schedule> schedules, string day)
+    {
+        var schedule = schedules.FirstOrDefault(s => s.Day.Name == day);
+        if (schedule != null)
+        {
+            return $"<div><strong>{schedule.Course.Name}</strong><br />{schedule.Professor.Name}</br>{schedule.Room.Name}</div>";
+        }
+        else
+        {
+            return string.Empty;
+        }
+    }
+}
+
+@{
+    ViewData["Title"] = "Print";
+    string ProfName = ViewData["ProfName"] as string;
+}
+
+@*This Page Create the printables for Professor.*@
+
+
+<div class="contatiner">
+    <div class="text-center">
+
+          
+           <div class="justify-content-start">
+                <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/Systems_Technology_Institute.png" style="height:10%; width:10%"  alt="...">
+           </div>
+          <div class="justify-content-center">
+            <p>STI Academic Center, University Parkway Drive, Bonifacio Global City, Taguig</p>
+            <p>Tel. No.: 551-4984</p>
+          </div>
+        <div>
+            <h4>
+                Schedules for @ProfName
+            </h4>
+        </div>
+        <div class="container-fluid">
+            <table class="table table-responsive table-bordered table-sm">
+                <thead class="table-light">
+                    <tr>
+                        <th class="text-center">Time</th>
+                        <th class="text-center">Monday</th>
+                        <th class="text-center">Tuesday</th>
+                        <th class="text-center">Wednesday</th>
+                        <th class="text-center">Thursday</th>
+                        <th class="text-center">Friday</th>
+                        <th class="text-center">Saturday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var group in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.Raw(group.Key)
+                            </td>
+                            <td>
+                                @Html.Raw(GetScheduleForDay(group, "Monday"))
+                            </td>
+                            <td>
+                                @Html.Raw(GetScheduleForDay(group, "Tuesday"))
+                            </td>
+                            <td>
+                                @Html.Raw(GetScheduleForDay(group, "Wednesday"))
+                            </td>
+                            <td>
+                                @Html.Raw(GetScheduleForDay(group, "Thursday"))
+                            </td>
+                            <td>
+                                @Html.Raw(GetScheduleForDay(group, "Friday"))
+                            </td>
+                            <td>
+                                @Html.Raw(GetScheduleForDay(group, "Saturday"))
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+       
+
+
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+﻿@model Sched.Models.Domain.Professor
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1 > Create a professor  </h1>
+
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="ProfessorId" class="control-label"></label>
+                            <input asp-for="ProfessorId" class="form-control" value="@ViewBag.NextProfessorId" />
+                            <span asp-validation-for="ProfessorId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" required/>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label"> Department</label>
+                            <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DeptName"></select>
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <div class="form-group">
+                                <button type="submit" value="Create" class="btn btn-outline-success"> <i class="fas fa-file-circle-plus"></i> Create</button>
+                                <a asp-action="Index" class="btn btn-warning"><i class="fas fa-list"></i> Back to List</a>
+                            </div>
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

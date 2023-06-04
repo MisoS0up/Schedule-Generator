@@ -1,0 +1,49 @@
+﻿@model Sched.Models.Domain.Room
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+
+            <h1>Edit Room</h1>
+
+            <hr />
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Edit">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="RoomId" />
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <br />
+
+                        <div class="text-center">
+                            <div class="form-group">
+                                <button class="btn btn-outline-success" type="submit" value="Save" class="btn btn-primary"> <i class="fa fa-save"></i> Save </button> |
+                                <a class="btn btn-warning" asp-action="Index"><i class="fas fa-list"></i> Back to List</a>
+                            </div>
+                        </div>
+                       
+                    </form>
+                </div>
+            </div>
+
+     
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

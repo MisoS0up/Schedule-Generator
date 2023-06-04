@@ -1,0 +1,171 @@
+﻿@model IEnumerable<Sched.Models.Domain.Schedule>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h1>Schedule</h1>
+        
+            <div class="row justify-content-center">
+                <div class="col-md-6 ">
+                <form method="get" action="@Url.Action("Index", "Schedules")">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="searchString" placeholder="Search...">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+
+      <div class="d-flex justify-content-center">
+            <div class="table-responsive d-none d-sm-table ">
+                <table class="table table-hover ">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Course)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Day)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Professor)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Room)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Timeslot)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Take(5))
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Course.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Day.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Professor.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Room.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Timeslot.TimeslotDisplay)
+                                </td>
+                                <td>
+                                    <a class="btn btn-success text-light btn-sm d-none d-sm-inline-block" asp-action="Edit" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-pen "></i> Edit</a> |
+                                    <a class="btn btn-info text-light btn-sm d-none d-sm-inline-block" asp-action="Details" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file "></i> Details</a> |
+                                    <a class="btn btn-danger text-light btn-sm d-none d-sm-inline-block" asp-action="Delete" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file-circle-xmark "></i> Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+      </div>
+        
+   
+
+        <p>
+            <a class="btn btn-outline-success btn-lg" asp-action="Create">Create new Schedule</a>
+        </p>
+       
+        <h6>Print a schedule
+        </h6>
+        <!-- Button trigger modal for Professor -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PrintProf">
+            Professor
+        </button>
+        <!-- Button trigger modal for Professor -->
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#PrintRoom">
+           Room
+        </button>
+
+        <!-- Modal for Professor Print-->
+        <div class="modal fade" id="PrintProf" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Print a Professors Schedule</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="get" action="@Url.Action("Print", "Schedules")">
+                            <div class="mb-3">
+                                <label for="inputName" class="form-label">Enter Name</label>
+                                <input type="search" class="form-control" id="inputName" name="searchQuery" aria-describedby="nameHelp" required>
+                                <div id="nameHelp" class="form-text">Enter a name to generate the schedule table</div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal for Room Print -->
+        <div class="modal fade" id="PrintRoom" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Print a Room Schedule</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="get" action="@Url.Action("PrintRoom", "Schedules")">
+                            <div class="mb-3">
+                                <label for="inputName" class="form-label">Enter Room</label>
+                                <input type="search" class="form-control" id="inputName" name="searchQuery" aria-describedby="nameHelp" required>
+                                <div id="nameHelp" class="form-text">Enter a room to generate the schedule table</div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="position-fixed top-0 end-0 p-3">
+        <div id="errorToast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="bg-danger text-light">
+                <div class="toast-body">
+                    <i class="fa-sharp fa-solid fa-circle-exclamation fa-bounce" style="color: #ffffff;"></i>
+                    @TempData["ErrorMessage"]
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="~/js/site.js">
+      
+    </script>
+
+
+
+       
+ 
+      
+  
+}
+

@@ -1,0 +1,31 @@
+﻿@model Sched.Models.Domain.Department
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container">
+    <div class="row text-center">
+   
+            <h1>Department Details</h1>
+            <hr/>
+            <div class="row">
+            <p> <strong> @Html.DisplayNameFor(model => model.Name)</strong> : @Html.DisplayFor(model => model.Name)</p>
+        
+        
+
+            </div>
+        <div>
+            <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@Model?.DepartmentId">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            <a class="btn btn-warning" asp-action="Index">
+                <i class="fas fa-list"></i> Back to List
+            </a>
+
+
+        </div>
+    </div>
+</div>
+
+
+

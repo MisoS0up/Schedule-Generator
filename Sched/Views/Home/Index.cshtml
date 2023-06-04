@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container">
+
+    <div id="carouselExampleDark" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/310657130_194373662953127_1128901092518311456_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=e3f864&_nc_ohc=-whHylxXlYQAX86pfKP&_nc_ht=scontent.fcrk1-1.fna&oh=00_AfDKUTVSrezXAAO_V7vbBmgFuMEPynj9WiK5t7TSki8vhQ&oe=647EAC96" class="d-block w-100" alt="...">
+              
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/348675767_500849138835370_56223675374007635_n.png?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_ohc=hDNuTKlfSfYAX-baNFs&_nc_ht=scontent.fcrk1-1.fna&oh=00_AfBxMIu82yDrnM2cygwaxBAEy2mcJ_BIXdJ-UpmctPr9Lw&oe=647DF4A2" class="d-block w-100" alt="...">
+                
+            </div>
+            <div class="carousel-item">
+                <img src="https://scontent.fcrk1-1.fna.fbcdn.net/v/t39.30808-6/289886874_5223290591081641_8290082169498620383_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=e3f864&_nc_ohc=kgRCmmOqZ9EAX8d99Yk&_nc_ht=scontent.fcrk1-1.fna&oh=00_AfDvNv9iBRCRaf8Rr5mLakCzFUgDZ4AEL03RvVg1hvfUlg&oe=647EBEC7" class="d-block w-100" alt="...">
+              
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="text-center">
+        <h1 class="display-4">Schedule Generator</h1>
+        
+            <a class="btn btn-primary text-light" asp-area="" asp-controller="Schedules" asp-action="Index">Schedule</a>
+        
+
+     
+    </div>
+
+</div>

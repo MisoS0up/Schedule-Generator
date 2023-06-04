@@ -1,0 +1,59 @@
+﻿@using Sched.Models.Domain
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+
+@model Sched.Models.Domain.Schedule
+@{
+    ViewData["Title"] = "Create";
+  
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h1 class="text-center">Create a Schedule</h1>
+            <hr />
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Schedule ID</label>
+                    <input asp-for="ScheduleId" class="form-control" value="@ViewBag.NextScheduleId" />
+                    <span asp-validation-for="ScheduleId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Professor</label>
+                    <select asp-for="ProfessorId" class="form-control" asp-items="ViewBag.ProfessorId"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Course</label>
+                    <select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Room</label>
+                    <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TimeslotId" class="control-label"></label>
+                    <select asp-for="TimeslotId" class="form-control" asp-items="ViewBag.TimeslotId"></select>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Day</label>
+                    <select asp-for="DayId" class="form-control" asp-items="ViewBag.DayId"></select>
+                </div>
+                <hr />
+                <div class="form-group text-center">
+                    <input class="btn btn-outline-success" type="submit" value="Create" />
+                    <a class="btn btn-warning text-center" asp-action="Index">Back to List</a>
+                </div>
+            </form>
+            <br />
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
