@@ -53,7 +53,7 @@ body {
         position: relative;
         display: block;
         width: calc(100% + 1.3px);
-        height: 200px;
+        height: 120px;
     }
 
     .custom-shape-divider-bottom-1685959950 .shape-fill {
@@ -74,7 +74,7 @@ body {
 
 
 .table-rounded {
-    border-radius: 50px; /* Adjust the value as per your preference */
+    /* Adjust the value as per your preference */
     overflow: hidden;
 }
 
@@ -89,12 +89,29 @@ body {
 
     .dark-mode .navbar {
         background-color: #1a1a1a;
+       
     }
 
     .dark-mode .btn-primary {
         background-color: #2b6bd6;
         border-color: #2b6bd6;
     }
+    .dark-mode .modal{
+        color: #000000;
+    }
+    .dark-mode .upright-text{
+        color: #ffd800;
+    }
+    .dark-mode .col-sm-2 {
+        color: #ffffff;
+    }
+    .dark-mode .col-sm-10 {
+        color: #ffffff;
+    }
+    .dark-mode .table-hover{
+        background-color: #ffffff;
+    }
+    
     /* Custom shape divider styles */
     .dark-mode .custom-shape-divider-bottom-1685959950 {
         position: absolute;
@@ -110,7 +127,7 @@ body {
             position: relative;
             display: block;
             width: calc(100% + 1.3px);
-            height: 200px;
+            height: 120px;
         }
 
         .dark-mode .custom-shape-divider-bottom-1685959950 .shape-fill {
