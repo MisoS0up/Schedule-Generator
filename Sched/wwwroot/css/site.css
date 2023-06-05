@@ -16,7 +16,9 @@ html {
 body {
     margin-bottom: 60px;
     font-family: 'Poppins-Regular';
+    
 }
+
 @font-face {
     font-family: 'Poppins-Regular';
     src: url('/font-awesome/webfonts/Poppins-Regular.ttf') format('truetype');

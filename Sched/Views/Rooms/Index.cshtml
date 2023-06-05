@@ -9,7 +9,7 @@
         <h1>Rooms</h1>
 
       
-        <table class="table">
+        <table class="table table-hover">
             <thead>
                 <tr>
                     <th>
@@ -26,9 +26,28 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-                            <a class="btn btn-success text-light btn-sm" asp-action="Edit" asp-route-id="@item.RoomId"><i class="fa-solid fa-pen"></i>  Edit</a> |
-                            <a class="btn btn-info text-light btn-sm" asp-action="Details" asp-route-id="@item.RoomId"><i class="fa-solid fa-file"></i> Details</a> |
-                            <a class="btn btn-danger text-light btn-sm" asp-action="Delete" asp-route-id="@item.RoomId"><i class="fa-solid fa-file-circle-xmark"></i> Delete</a>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.RoomId">
+                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal-@item.RoomId" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Choose to...</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <a class="btn btn-success text-light btn-sm  d-sm-inline-block" asp-action="Edit" asp-route-id="@item.RoomId"><i class="fa-solid fa-pen "></i> Edit</a> |
+                                            <a class="btn btn-info text-light btn-sm  d-sm-inline-block" asp-action="Details" asp-route-id="@item.RoomId"><i class="fa-solid fa-file "></i> Details</a> |
+                                            <a class="btn btn-danger text-light btn-sm  d-sm-inline-block" asp-action="Delete" asp-route-id="@item.RoomId"><i class="fa-solid fa-file-circle-xmark "></i> Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 }
@@ -36,7 +55,7 @@
         </table>
 
         <p>
-            <a class="btn btn-outline-primary btn-lg" asp-action="Create">Add Rooms</a>
+            <a class="btn btn-outline-primary btn-lg" asp-action="Create"><i class="fa fa-plus" aria-hidden="true"></i> Add Rooms</a>
         </p>
 
     </div>

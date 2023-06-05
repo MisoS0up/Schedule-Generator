@@ -22,7 +22,7 @@
             </div>
 
       <div class="d-flex justify-content-center">
-            <div class="table-responsive d-none d-sm-table ">
+            <div class="table-responsive  d-sm-table ">
                 <table class="table table-hover ">
                     <thead>
                         <tr>
@@ -65,8 +65,8 @@
                                 </td>
                                 <td>
                                     <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-outline-info" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ScheduleId">
-                                        More
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal-@item.ScheduleId">
+                                        <i class="fa fa-cogs" aria-hidden="true"></i>
                                     </button>
 
                                     <!-- Modal -->
@@ -79,9 +79,9 @@
                                                 </div>
                                                 
                                                 <div class="modal-footer">
-                                                    <a class="btn btn-success text-light btn-sm d-none d-sm-inline-block" asp-action="Edit" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-pen "></i> Edit</a> |
-                                                    <a class="btn btn-info text-light btn-sm d-none d-sm-inline-block" asp-action="Details" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file "></i> Details</a> |
-                                                    <a class="btn btn-danger text-light btn-sm d-none d-sm-inline-block" asp-action="Delete" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file-circle-xmark "></i> Delete</a>
+                                                    <a class="btn btn-success text-light btn-sm d-sm-inline-block" asp-action="Edit" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-pen "></i> Edit</a> |
+                                                    <a class="btn btn-info text-light btn-sm  d-sm-inline-block" asp-action="Details" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file "></i> Details</a> |
+                                                    <a class="btn btn-danger text-light btn-sm d-sm-inline-block" asp-action="Delete" asp-route-id="@item.ScheduleId"><i class="fa-solid fa-file-circle-xmark "></i> Delete</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -98,17 +98,17 @@
    
 
         <p>
-            <a class="btn btn-outline-success btn-lg" asp-action="Create">Create new Schedule</a>
+            <a class="btn btn-outline-primary btn-lg" asp-action="Create"> <i class="fa fa-plus" aria-hidden="true"></i> Create new Schedule</a>
         </p>
        
         <h6>Print a schedule
         </h6>
         <!-- Button trigger modal for Professor -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#PrintProf">
-            Professor
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#PrintProf">
+            <i class="fa fa-user" aria-hidden="true"></i>  Professor
         </button>
         <!-- Button trigger modal for Professor -->
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#PrintRoom">
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#PrintRoom">
            Room
         </button>
 
