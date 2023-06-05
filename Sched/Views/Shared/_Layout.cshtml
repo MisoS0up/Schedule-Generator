@@ -12,9 +12,16 @@
 </head>
 <body>
     <header>
-        <nav class="navbar  navbar-expand-sm navbar-toggleable-sm navbar-dark border-bottom box-shadow mb-3 bg-dark">
+        <nav class="navbar  navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3 bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Schedule Generator</a>
+                <a class="navbar-brand d-flex align-items-center justify-content-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <div class="logo-image">
+                        <img src="/imgs/STI_LOGO_for_ScheduleGen.png" class="img-fluid">
+                    </div>
+                    <span class="ms-2">STI Schedule Generator</span>
+                </a>
+
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,27 +31,31 @@
 
                        
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Schedules" asp-action="Index">Schedule</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Schedules" asp-action="Index">Schedule</a>
                         </li>
+
+
                         <li>
                             <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
                                 <ul class="navbar-nav">
                                     <li class="nav-item dropdown">
-                                        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                             Maintenance
                                         </button>
-                                        <ul class="dropdown-menu dropdown-menu-dark">
-                                            <li>  <a class="nav-link text-light" asp-area="" asp-controller="Professors" asp-action="Index">Professors</a></li>
-                                            <li>  <a class="nav-link text-light" asp-area="" asp-controller="Departments" asp-action="Index">Departments</a></li>
-                                            <li>  <a class="nav-link text-light" asp-area="" asp-controller="Rooms" asp-action="Index">Rooms</a></li>
-                                            <li>  <a class="nav-link text-light" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a></li>
-
-
-
+                                        <ul class="dropdown-menu dropdown-menu-light ">
+                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Professors" asp-action="Index">Professors</a></li>
+                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Departments" asp-action="Index">Departments</a></li>
+                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Rooms" asp-action="Index">Rooms</a></li>
+                                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </div>
+                        </li>
+
+                        <li >
+                            <button class="btn btn-no-shadow"> <i class="fas fa-moon" onclick="toggleDarkMode()"></i>   </button>
+
                         </li>
                        
                     </ul>
@@ -58,15 +69,30 @@
             @RenderBody()
         </main>
     </div>
+    <br 
+         <br />
+    
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - Schedule Generator - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - Made by <a href="https://github.com/MisoS0up">MisoSoup</a> 
+        <div class="container-fluid">
+            <div class="custom-shape-divider-bottom-1685959950">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+                <div class="divider-text">
+                    <span class="upright-text">&copy; 2023 - Schedule Generator - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - Made by <a href="https://github.com/MisoS0up">Josh</a> &amp; <a href="https://github.com/jessaibatan">Jessa</a>   </span>
+                </div>
+            </div>
 
+          
+        </div>
     </footer>
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
