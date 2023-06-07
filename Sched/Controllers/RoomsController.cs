@@ -19,12 +19,20 @@ namespace Sched.Controllers
         }
 
         // GET: Rooms
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Rooms != null ? 
-                          View(await _context.Rooms.ToListAsync()) :
-                          Problem("Entity set 'SchedContext.Rooms'  is null.");
+            var query = _context.Rooms.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                query = query.Where(r =>
+                    r.Name.Contains(searchString));
+            }
+
+            var rooms = await query.ToListAsync();
+            return View(rooms);
         }
+
 
         // GET: Rooms/Details/5
         public async Task<IActionResult> Details(int? id)
