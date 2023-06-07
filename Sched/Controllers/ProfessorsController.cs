@@ -17,13 +17,25 @@ namespace Sched.Controllers
         {
             _context = context;
         }
-
         // GET: Professors
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var schedContext = _context.Professors.Include(p => p.Department);
-            return View(await schedContext.ToListAsync());
+            IQueryable<Professor> professorsQuery = _context.Professors.Include(p => p.Department);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                professorsQuery = professorsQuery.Where(p =>
+                    p.Name.Contains(searchString) ||
+                    p.Department.Name.Contains(searchString)
+                );
+            }
+
+            var professors = await professorsQuery.ToListAsync();
+
+            return View(professors);
         }
+
+
 
         // GET: Professors/Details/5
         public async Task<IActionResult> Details(int? id)
