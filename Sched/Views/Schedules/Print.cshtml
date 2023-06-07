@@ -54,11 +54,12 @@
                         <th class="text-center">Friday</th>
                         <th class="text-center">Saturday</th>
                     </tr>
+                   
                 </thead>
                 <tbody>
                     @foreach (var group in Model)
                     {
-                        <tr>
+                        <tr class="text">
                             <td>
                                 @Html.Raw(group.Key)
                             </td>

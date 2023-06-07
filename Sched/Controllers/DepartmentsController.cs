@@ -19,11 +19,18 @@ namespace Sched.Controllers
         }
 
         // GET: Departments
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Departments != null ? 
-                          View(await _context.Departments.ToListAsync()) :
-                          Problem("Entity set 'SchedContext.Departments'  is null.");
+            var query = _context.Departments.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                query = query.Where(r =>
+                    r.Name.Contains(searchString));
+            }
+
+            var departments = await query.ToListAsync();
+            return View(departments);
         }
 
         // GET: Departments/Details/5

@@ -19,11 +19,18 @@ namespace Sched.Controllers
         }
 
         // GET: Courses
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return _context.Courses != null ? 
-                          View(await _context.Courses.ToListAsync()) :
-                          Problem("Entity set 'SchedContext.Courses'  is null.");
+            var query = _context.Courses.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                query = query.Where(r =>
+                    r.Name.Contains(searchString));
+            }
+
+            var courses = await query.ToListAsync();
+            return View(courses);
         }
 
         // GET: Courses/Details/5

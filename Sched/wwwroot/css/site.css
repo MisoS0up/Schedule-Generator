@@ -99,9 +99,7 @@ body {
     .dark-mode .modal{
         color: #000000;
     }
-    .dark-mode .upright-text{
-        color: #ffd800;
-    }
+   
     .dark-mode .col-sm-2 {
         color: #ffffff;
     }
@@ -109,6 +107,9 @@ body {
         color: #ffffff;
     }
     .dark-mode .table-hover{
+        background-color: #ffffff;
+    }
+    .dark-mode .text{
         background-color: #ffffff;
     }
     
