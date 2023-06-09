@@ -31,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.OrderByDescending(x => x.CourseId).Take(5))
                 {
                     <tr>
                         <td>

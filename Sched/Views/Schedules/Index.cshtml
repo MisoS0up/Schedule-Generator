@@ -45,7 +45,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.Take(5))
+                        @foreach (var item in Model.OrderByDescending(x => x.ScheduleId).Take(5))
                         {
                             <tr>
                                 <td>

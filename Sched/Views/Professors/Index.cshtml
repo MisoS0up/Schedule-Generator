@@ -33,7 +33,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.OrderByDescending(x => x.ProfessorId).Take(5))
                 {
                     <tr>
                         <td>
